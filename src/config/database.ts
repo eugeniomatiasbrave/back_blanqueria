@@ -9,7 +9,7 @@ const sequelize = new Sequelize(
   config.database.password,
   {
     host: config.database.host,
-    port: config.database.port,
+    port: Number(config.database.port),
     dialect: 'mysql',
     logging: process.env.NODE_ENV === 'development' ? console.log : false,
     pool: {
