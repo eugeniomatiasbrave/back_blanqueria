@@ -12,9 +12,9 @@ const config = {
   database: {
     host: process.env.DB_HOST || 'localhost',
     username: process.env.DB_USER || 'root',
-    password: process.env.DB_PASSWORD || '',
+    password: process.env.DB_PASSWORD || 'blanqueria2025',
     database: process.env.DB_NAME || 'blanqueria_db',
-    port: parseInt(process.env.DB_PORT || '3306', 10),
+    port: process.env.DB_PORT || 3306,
     dialect: 'mysql'
   },
   mail: {
