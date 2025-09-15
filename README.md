@@ -16,21 +16,61 @@ Backend para la landing page de Blanquería, desarrollado con Express.js, TypeSc
 - Node.js 14.x o superior
 - MySQL 5.7 o superior
 
-## Instalación
+## Despliegue en Railway
+
+### Backend
+
+1. Clona este repositorio en Railway o conecta tu GitHub.
+
+2. Crea un nuevo proyecto Railway tipo "Node.js" y sube el código.
+
+3. Configura las variables de entorno en Railway:
+
+- MYSQLHOST
+- MYSQLUSER
+- MYSQLPASSWORD
+- MYSQLDATABASE
+- MYSQLPORT
+- PORT (puerto del backend, por defecto 3001)
+
+1. Railway instalará las dependencias automáticamente.
+
+2. El backend se ejecutará en Railway y expondrá la API.
+
+### Base de datos MySQL
+
+1. En Railway, crea un nuevo servicio "MySQL".
+
+2. Copia las credenciales generadas por Railway y configúralas como variables de entorno en el backend.
+
+3. Sube el esquema de la base de datos usando los archivos en `src/database/Contacts.sql` y `src/database/Users.sql`.
+  Puedes usar el panel de Railway o conectarte con un cliente MySQL externo.
+
+### Variables de entorno ejemplo
+
+```env
+MYSQLHOST=tu_host_mysql_railway
+MYSQLUSER=tu_usuario_mysql_railway
+MYSQLPASSWORD=tu_password_mysql_railway
+MYSQLDATABASE=tu_db_mysql_railway
+MYSQLPORT=3306
+PORT=3001
+```
+
+## Instalación local
 
 1. Clonar el repositorio
 2. Instalar dependencias:
 
-   npm install
+  npm install
 
-3. Crear el archivo `.env` y configurar las variables de entorno
-4. Crear la base de datos en MySQL:
-sql
-   CREATE DATABASE blanqueria_db;
+1. Crear el archivo `.env` y configurar las variables de entorno
+2. Crear la base de datos en MySQL:
+  CREATE DATABASE blanqueria_db;
 
-5. Ejecutar el servidor en modo desarrollo:
+3. Ejecutar el servidor en modo desarrollo:
 
-   npm run dev
+  npm run dev
 
 ## Estructura del proyecto
 

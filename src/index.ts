@@ -6,7 +6,7 @@ import config from './config/config';
 
 // Inicializar la aplicación Express
 const app = express();
-const PORT = config.server.port;
+const PORT = config.server.port || 3001;
 
 // Middleware para CORS
 app.use(cors({
@@ -53,8 +53,8 @@ const startServer = async () => {
 
     // Iniciar el servidor
     app.listen(PORT, () => {
-      console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
-      console.log(`API disponible en http://localhost:${PORT}/api`);
+  console.log(`Servidor ejecutándose en Railway o local en el puerto ${PORT}`);
+  console.log(`API disponible en /api`);
       console.log(`Modo: ${config.server.nodeEnv}`);
     });
   } catch (error) {
