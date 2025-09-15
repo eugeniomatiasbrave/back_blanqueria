@@ -4,12 +4,12 @@ import config from './config';
 // Configuración de la conexión a la base de datos MySQL usando Sequelize
 
 const sequelize = new Sequelize(
-  config.database.database,
-  config.database.username,
-  config.database.password,
+  config.database.database ?? '',
+  config.database.username ?? '',
+  config.database.password ?? '',
   {
-    host: config.database.host,
-    port: Number(config.database.port),
+    host: config.database.host ?? '',
+    port: Number(config.database.port ?? 3306),
     dialect: 'mysql',
     logging: process.env.NODE_ENV === 'development' ? console.log : false,
     pool: {
