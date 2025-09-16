@@ -10,11 +10,11 @@ const config = {
     nodeEnv: process.env.NODE_ENV || 'development',
   },
   database: {
-    host: process.env.MYSQLHOST || 'localhost',
-    username: process.env.MYSQLUSER || 'root',
-    password: process.env.MYSQLPASSWORD || '',
-    database: process.env.MYSQLDATABASE || 'blanqueria_db',
-    port: process.env.MYSQLPORT || 3306,
+    host: process.env.DB_HOST || 'localhost',
+    port: process.env.DB_PORT || '3306',
+    username: process.env.DB_USER || 'root',
+    password: process.env.DB_PASSWORD || '',
+    database: process.env.DB_DATABASE || 'blanqueria_db',
     dialect: 'mysql'
   },
   mail: {
