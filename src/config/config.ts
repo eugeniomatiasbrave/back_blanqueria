@@ -14,12 +14,12 @@ const config = {
     port: process.env.DB_PORT || '3306',
     username: process.env.DB_USER || 'root',
     password: process.env.DB_PASSWORD || '',
-    database: process.env.DB_DATABASE || 'blanqueria_db',
+    database: process.env.DB_DATABASE || 'railway',
     dialect: 'mysql'
   },
   mail: {
     host: process.env.MAIL_HOST || 'smtp.example.com',
-    port: parseInt(process.env.MAIL_PORT || '587', 10),
+    port: process.env.MAIL_PORT || '587',
     secure: false,
     auth: {
       user: process.env.MAIL_USER || '', 
@@ -28,7 +28,7 @@ const config = {
     from: process.env.MAIL_FROM || 'Blanquería <eugeniomatiasbrave@gmail.com>', // Email del Aminitrador
   },
   cors: {
-    origin: process.env.CORS_ORIGIN || 'http://localhost:5173',
+    origin: process.env.CORS_ORIGIN || 'https://front-blanqueria.vercel.app',
   }
 };
 
