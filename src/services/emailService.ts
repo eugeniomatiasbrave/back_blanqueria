@@ -1,25 +1,17 @@
 import nodemailer from 'nodemailer';
+import SMTPTransport from 'nodemailer/lib/smtp-transport';
 import config from '../config/config';
 
-// Crear transporter para el envío de emails
+// Crear transporter para el envío de emails usando el tipo SMTPTransport.Options
 const transporter = nodemailer.createTransport({
-  // Especificar el tipo de transporte como 'smtp' para que acepte las opciones de SMTP
-  // Esto ayuda a que TypeScript reconozca las propiedades 'host', 'port', etc.
-  // Ver: https://nodemailer.com/smtp/
-  // @ts-expect-error: Forzar el tipo SMTP para evitar error de tipado
-  // Alternativamente, puedes definir el tipo explícitamente como SMTPTransport.Options
-  // import SMTPTransport from 'nodemailer/lib/smtp-transport';
-  // const transporter = nodemailer.createTransport({
-  //   ...config
-  // } as SMTPTransport.Options);
   host: config.mail.host,
-  port: config.mail.port,
+  port: Number(config.mail.port),
   secure: config.mail.secure,
   auth: {
     user: config.mail.auth.user,
     pass: config.mail.auth.pass,
   },
-});
+} as SMTPTransport.Options);
 
 /**
  * Envía un email de confirmación al cliente (usuario)
