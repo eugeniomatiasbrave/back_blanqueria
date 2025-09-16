@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS `blanqueria_db`;
+CREATE DATABASE IF NOT EXISTS `railway`;
 
-USE `blanqueria_db`;
+USE `railway`;
 
 -- Tabla de contactos
 CREATE TABLE IF NOT EXISTS `contacts` (
