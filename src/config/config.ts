@@ -18,7 +18,7 @@ const config = {
     dialect: 'mysql'
   },
   mail: {
-    sendgridApiKey: process.env.SENDGRID_API_KEY || '',
+    sendgridApiKey: process.env.BLANQUERIA_API_KEY || '',
     from: process.env.MAIL_FROM || 'Blanquería <eugeniomatiasbrave@gmail.com>', // Email del Administrador
     auth: {
       user: process.env.MAIL_USER || '',
