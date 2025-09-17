@@ -1,17 +1,8 @@
-import nodemailer from 'nodemailer';
-import SMTPTransport from 'nodemailer/lib/smtp-transport';
+import sgMail from '@sendgrid/mail';
 import config from '../config/config';
 
-// Crear transporter para el envío de emails usando el tipo SMTPTransport.Options
-const transporter = nodemailer.createTransport({
-  host: config.mail.host,
-  port: Number(config.mail.port),
-  secure: config.mail.secure,
-  auth: {
-    user: config.mail.auth.user,
-    pass: config.mail.auth.pass,
-  },
-} as SMTPTransport.Options);
+// Configurar SendGrid API Key
+sgMail.setApiKey(config.mail.sendgridApiKey);
 
 /**
  * Envía un email de confirmación al cliente (usuario)
@@ -39,8 +30,7 @@ export const sendConfirmationEmail = async (name: string, email: string): Promis
     if (config.server.nodeEnv === 'development') {
       console.log('Email de confirmación:', mailOptions);
     }
-
-    await transporter.sendMail(mailOptions);
+    await sgMail.send(mailOptions);
     console.log(`Email de confirmación enviado a ${email}`);
   } catch (error) {
     console.error('Error al enviar email de confirmación:', error);
@@ -86,8 +76,8 @@ export const sendAdminNotificationEmail = async (contactData: {
       console.log('Email de notificación al admin:', mailOptions);
     }
 
-    await transporter.sendMail(mailOptions);
-    console.log('Email de notificación enviado al administrador');
+  await sgMail.send(mailOptions);
+  console.log('Email de notificación enviado al administrador');
   } catch (error) {
     console.error('Error al enviar email de notificación al admin:', error);
     throw error;

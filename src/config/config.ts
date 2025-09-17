@@ -18,14 +18,11 @@ const config = {
     dialect: 'mysql'
   },
   mail: {
-    host: process.env.MAIL_HOST || 'smtp.gmail.com',
-    port: process.env.MAIL_PORT || '465',
-    secure: true,
+    sendgridApiKey: process.env.SENDGRID_API_KEY || '',
+    from: process.env.MAIL_FROM || 'Blanquería <eugeniomatiasbrave@gmail.com>', // Email del Administrador
     auth: {
-      user: process.env.MAIL_USER || '', 
-      pass: process.env.MAIL_PASSWORD || 'password',
+      user: process.env.MAIL_USER || '',
     },
-    from: process.env.MAIL_FROM || 'Blanquería <eugeniomatiasbrave@gmail.com>', // Email del Aminitrador
   },
   cors: {
     origin: process.env.CORS_ORIGIN || 'https://front-blanqueria.vercel.app',
